@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Aura-Development-Solutions/static/css/main.fee43fb2.css",
-    "main.js": "/Aura-Development-Solutions/static/js/main.a1824aab.js",
-    "static/js/453.17075f61.chunk.js": "/Aura-Development-Solutions/static/js/453.17075f61.chunk.js",
-    "static/media/header.jpg": "/Aura-Development-Solutions/static/media/header.810cd50707d8d334ba51.jpg",
-    "static/media/company_vision.jpg": "/Aura-Development-Solutions/static/media/company_vision.303b8b5e74c8291eb39b.jpg",
-    "index.html": "/Aura-Development-Solutions/index.html",
-    "main.fee43fb2.css.map": "/Aura-Development-Solutions/static/css/main.fee43fb2.css.map",
-    "main.a1824aab.js.map": "/Aura-Development-Solutions/static/js/main.a1824aab.js.map",
-    "453.17075f61.chunk.js.map": "/Aura-Development-Solutions/static/js/453.17075f61.chunk.js.map"
+    "main.css": "/Aura-Landing/static/css/main.9c255420.css",
+    "main.js": "/Aura-Landing/static/js/main.a5c1afe1.js",
+    "static/js/453.17075f61.chunk.js": "/Aura-Landing/static/js/453.17075f61.chunk.js",
+    "static/media/header.jpg": "/Aura-Landing/static/media/header.810cd50707d8d334ba51.jpg",
+    "static/media/company_vision.jpg": "/Aura-Landing/static/media/company_vision.303b8b5e74c8291eb39b.jpg",
+    "index.html": "/Aura-Landing/index.html",
+    "main.9c255420.css.map": "/Aura-Landing/static/css/main.9c255420.css.map",
+    "main.a5c1afe1.js.map": "/Aura-Landing/static/js/main.a5c1afe1.js.map",
+    "453.17075f61.chunk.js.map": "/Aura-Landing/static/js/453.17075f61.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fee43fb2.css",
-    "static/js/main.a1824aab.js"
+    "static/css/main.9c255420.css",
+    "static/js/main.a5c1afe1.js"
   ]
 }
