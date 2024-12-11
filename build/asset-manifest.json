@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Aura-Development-Solutions/static/css/main.fee43fb2.css",
+    "main.js": "/Aura-Development-Solutions/static/js/main.a1824aab.js",
+    "static/js/453.17075f61.chunk.js": "/Aura-Development-Solutions/static/js/453.17075f61.chunk.js",
+    "static/media/header.jpg": "/Aura-Development-Solutions/static/media/header.810cd50707d8d334ba51.jpg",
+    "static/media/company_vision.jpg": "/Aura-Development-Solutions/static/media/company_vision.303b8b5e74c8291eb39b.jpg",
+    "index.html": "/Aura-Development-Solutions/index.html",
+    "main.fee43fb2.css.map": "/Aura-Development-Solutions/static/css/main.fee43fb2.css.map",
+    "main.a1824aab.js.map": "/Aura-Development-Solutions/static/js/main.a1824aab.js.map",
+    "453.17075f61.chunk.js.map": "/Aura-Development-Solutions/static/js/453.17075f61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fee43fb2.css",
+    "static/js/main.a1824aab.js"
+  ]
+}
