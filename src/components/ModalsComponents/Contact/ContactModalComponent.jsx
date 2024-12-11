@@ -5,7 +5,8 @@ import Swal from "sweetalert2";
 
 const ContactModalComponent = () => {
   // hook para obtener el estado del formulario y las funciones necesarias
-  const { formData, isLoading, handleChange, handleSubmit } = EmailJs();
+  const { formData, isLoading, handleChange, handleSubmit, resetForm } =
+    EmailJs();
 
   // hook para obtener las opciones de servicio
   const services = HookServices();
@@ -18,6 +19,11 @@ const ContactModalComponent = () => {
           title: "¡Mensaje Enviado!",
           text: "¡Gracias por contactarnos! Te responderemos pronto.",
           confirmButtonText: "Aceptar",
+        }).then(() => {
+          const modalElement = document.getElementById("contactModal");
+          const modalInstance = new window.bootstrap.Modal(modalElement);
+          modalInstance.hide(); // Cierra el modal
+          resetForm();
         });
       })
       .catch((error) => {
@@ -42,7 +48,7 @@ const ContactModalComponent = () => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="contactModalLabel">
-              Contactanos.
+              Contáctanos
             </h5>
             <button
               type="button"

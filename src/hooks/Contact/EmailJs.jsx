@@ -12,6 +12,17 @@ const EmailJs = () => {
     message: "",
   });
 
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      company: "",
+      service: "",
+      phone: "",
+      email: "",
+      message: "",
+    });
+  };
+
   const [isLoading, setIsLoading] = useState(false); // para la activacion del botón
 
   const handleChange = (e) => {
@@ -53,6 +64,7 @@ const EmailJs = () => {
     isLoading,
     handleChange,
     handleSubmit,
+    resetForm,
   };
 };
 
