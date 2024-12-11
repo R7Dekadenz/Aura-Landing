@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Aura-Landing/static/css/main.9c255420.css",
+    "main.js": "/Aura-Landing/static/js/main.70c7fbe2.js",
+    "static/js/453.17075f61.chunk.js": "/Aura-Landing/static/js/453.17075f61.chunk.js",
+    "static/media/header.jpg": "/Aura-Landing/static/media/header.810cd50707d8d334ba51.jpg",
+    "static/media/company_vision.jpg": "/Aura-Landing/static/media/company_vision.303b8b5e74c8291eb39b.jpg",
+    "index.html": "/Aura-Landing/index.html",
+    "main.9c255420.css.map": "/Aura-Landing/static/css/main.9c255420.css.map",
+    "main.70c7fbe2.js.map": "/Aura-Landing/static/js/main.70c7fbe2.js.map",
+    "453.17075f61.chunk.js.map": "/Aura-Landing/static/js/453.17075f61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c255420.css",
+    "static/js/main.70c7fbe2.js"
+  ]
+}
