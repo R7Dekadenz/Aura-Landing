@@ -1,0 +1,82 @@
+.custom-modal-content {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  border: none;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-modal-content.show {
+  transform: scale(1);
+}
+
+/* Encabezado */
+.custom-modal-header {
+  border-bottom: none;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.custom-modal-header .btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+/* Inputs */
+.custom-input {
+  padding: 1rem;
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #e7f0ff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón */
+.custom-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.custom-button:active {
+  background-color: #004085;
+  transform: translateY(0);
+}
+
+/* Sombra al pasar el mouse por el modal */
+.modal.fade.show .modal-dialog {
+  transform: translate(0, 50px);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Sombra al pasar el mouse sobre el formulario */
+.custom-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}

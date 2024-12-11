@@ -1,0 +1,53 @@
+/* Estilos generales para el header */
+.header-container {
+  position: relative;
+  height: 75vh; /* Ocupa toda la altura de la ventana */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../media/img/header.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 5em;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.header-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado vertical y horizontal */
+  text-align: center;
+  color: white;
+}
+
+.header-logo {
+  max-width: 250px; /* Tamaño máximo del logo */
+  margin-bottom: 20px; /* Espacio entre el logo y el texto */
+}
+
+.header-title {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 6.5em;
+}
+
+.fade-in {
+  opacity: 0; /* Comienza transparente */
+  transform: translateX(20px); /* Desplazamiento inicial hacia la derecha */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transición suave */
+}
+
+.fade-in.visible {
+  opacity: 1; /* Totalmente visible */
+  transform: translateX(0); /* Posición final */
+}
+
+@media (max-width: 91.5em) {
+  .header-container {
+    margin-left: 0; /* Elimina el margen izquierdo */
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}
