@@ -7,10 +7,10 @@ const HookServices = () => {
   useEffect(() => {
     setTimeout(() => {
       setServices([
-        { id: "1", name: "Desarrollo web" },
-        { id: "2", name: "Diseño y publicidad" },
-        { id: "3", name: "Aura Software" },
-        { id: "4", name: "Desarrollos especiales" },
+        { id: "1", name: "Desarrollo de Aplicaciones Web" },
+        { id: "2", name: "Diseño Web" },
+        { id: "3", name: "Aura Modules" },
+        { id: "4", name: "Diseño Gráfico" },
       ]);
     }, 1000);
   }, []);

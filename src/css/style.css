@@ -1,10 +1,19 @@
 body {
   font-family: "Poppins", sans-serif;
+  background: #fff;
 }
 
 p {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .text-blue {
@@ -58,6 +67,14 @@ p {
   font-size: 1.5rem;
   line-height: 2rem;
   letter-spacing: -0.05em;
+}
+
+.brand-name {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 3px solid #ffffff; /* Línea que recuerda la de un poste de barbería */
 }
 
 @media (max-width: 1000px) {

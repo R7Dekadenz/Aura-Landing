@@ -1,29 +1,25 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
+///import axios from "axios";
 
 // Hook para manejar el envío del formulario de contacto
 const EmailJs = () => {
   const [formData, setFormData] = useState({
     name: "",
-    service: "",
     company: "",
+    service: "",
     phone: "",
     email: "",
     message: "",
+    from: "", // Correo del remitente
+    to: "", // Correo del destinatario
+    subject: "",
+    text: "",
+    html: "",
+    Status: "",
   });
 
-  const resetForm = () => {
-    setFormData({
-      name: "",
-      company: "",
-      service: "",
-      phone: "",
-      email: "",
-      message: "",
-    });
-  };
-
-  const [isLoading, setIsLoading] = useState(false); // para la activacion del botón
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,30 +29,75 @@ const EmailJs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      company: "",
+      service: "",
+      phone: "",
+      email: "",
+      message: "",
+      from: "",
+      to: "",
+      subject: "",
+      text: "",
+      html: "",
+      Status: "",
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    return emailjs
-      .sendForm(
-        "service_wz96v7g",
-        "template_zwncaet",
-        e.target,
-        "BmBFYLlS9Gk3fAfKm"
-      )
-      .then(
-        (result) => {
-          console.log("Correo enviado:", result.text);
-          return "success";
-        },
-        (error) => {
-          console.log("Error al enviar el correo:", error.text);
-          throw error;
-        }
-      )
-      .finally(() => {
-        setIsLoading(false);
+    const templateParams = {
+      to: "yumei.develop@gmail.com",
+      name: formData.name,
+      service: formData.service,
+      company: formData.company,
+      phone: formData.phone,
+      from: formData.email,
+      message: formData.message,
+    };
+
+    await emailjs.send(
+      "service_wz96v7g",
+      "template_zwncaet",
+      templateParams,
+      "BmBFYLlS9Gk3fAfKm"
+    );
+
+    /*const sendMailToDB = async () => {
+      await axios.post("http://localhost:3001/api/send-email", {
+        from: formData.email,
+        to: "yumei.develop@gmail.com",
+        subject: `Cotización para ${formData.service} por parte de ${formData.company}`,
+        text: `Nombre: ${formData.name}\nEmpresa: ${formData.company}\nServicio: ${formData.service}\nTeléfono: ${formData.phone}\nMensaje: ${formData.message}`,
+        html: `
+          <p><strong>Nombre:</strong> ${formData.name}</p>
+          <p><strong>Empresa:</strong> ${formData.company}</p>
+          <p><strong>Servicio:</strong> ${formData.service}</p>
+          <p><strong>Teléfono:</strong> ${formData.phone}</p>
+          <p><strong>Mensaje:</strong> ${formData.message}</p>
+        `,
+        Status: (formData.Status = response.status === 200 ? 200 : 500),
+        name: formData.name,
+        company: formData.company,
+        service: formData.service,
+        phone: formData.phone,
+        message: formData.message,
       });
+    };*/
+
+    try {
+      // sendMailToDB();
+    } catch (error) {
+      console.error("Error al enviar el correo:", error);
+      //sendMailToDB();
+    } finally {
+      //setIsLoading(false);
+      resetForm();
+    }
   };
 
   return {
@@ -67,80 +108,5 @@ const EmailJs = () => {
     resetForm,
   };
 };
-
-/*
-import { useState } from "react";
-import emailjs from "emailjs-com";
-
-// Hook para manejar el envío del formulario de contacto
-const EmailJs = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    service: "",
-    company: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
-  const [isLoading, setIsLoading] = useState(false); // para la activación del botón
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // Usando send() en lugar de sendForm para enviar los datos manualmente
-    const templateParams = {
-      to_email: "destinatario@correo.com", // Puedes poner un valor dinámico aquí
-      from_name: formData.name,
-      from_service: formData.service,
-      from_company: formData.company,
-      from_phone: formData.phone,
-      from_email: formData.email,
-      message: formData.message,
-    };
-
-    emailjs
-      .send(
-        "service_wz96v7g", // ID del servicio configurado en EmailJS
-        "template_zwncaet", // ID de la plantilla configurada en EmailJS
-        templateParams, // Aquí pasamos los datos del formulario
-        "BmBFYLlS9Gk3fAfKm" // Tu User ID de EmailJS
-      )
-      .then(
-        (result) => {
-          console.log("Correo enviado:", result.text);
-          return "success"; // Podrías manejar esto como una alerta o mensaje al usuario
-        },
-        (error) => {
-          console.log("Error al enviar el correo:", error.text);
-          throw error;
-        }
-      )
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-
-  return {
-    formData,
-    isLoading,
-    handleChange,
-    handleSubmit,
-  };
-};
-
-export default EmailJs;
-
-
-*/
 
 export default EmailJs;

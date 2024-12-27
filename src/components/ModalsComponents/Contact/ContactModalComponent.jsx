@@ -1,9 +1,10 @@
 import React from "react";
+import { Modal, Button, Form, Spinner } from "react-bootstrap";
 import EmailJs from "../../../hooks/Contact/EmailJs";
 import HookServices from "../../../hooks/Contact/HookServices";
 import Swal from "sweetalert2";
 
-const ContactModalComponent = () => {
+const ContactModalComponent = ({ show, handleClose }) => {
   // hook para obtener el estado del formulario y las funciones necesarias
   const { formData, isLoading, handleChange, handleSubmit, resetForm } =
     EmailJs();
@@ -20,10 +21,8 @@ const ContactModalComponent = () => {
           text: "¡Gracias por contactarnos! Te responderemos pronto.",
           confirmButtonText: "Aceptar",
         }).then(() => {
-          const modalElement = document.getElementById("contactModal");
-          const modalInstance = new window.bootstrap.Modal(modalElement);
-          modalInstance.hide(); // Cierra el modal
-          resetForm();
+          handleClose(); // Cierra el modal
+          resetForm(); // Limpia el formulario
         });
       })
       .catch((error) => {
@@ -37,142 +36,101 @@ const ContactModalComponent = () => {
   };
 
   return (
-    <div
-      className="modal fade"
-      id="contactModal"
-      tabIndex="-1"
-      aria-labelledby="contactModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog modal-lg modal-dialog-centered">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="contactModalLabel">
-              Contáctanos
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Cerrar"
-            ></button>
-          </div>
-          <div className="modal-body">
-            <form onSubmit={handleFormSubmit}>
-              <div className="mb-3">
-                <label htmlFor="name" className="form-label">
-                  Nombre:
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="form-control"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Contáctanos</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleFormSubmit}>
+          <Form.Group className="mb-3" controlId="formName">
+            <Form.Label>Nombre:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingresa tu nombre"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-              <div className="mb-3">
-                <label htmlFor="company" className="form-label">
-                  Empresa:
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  className="form-control"
-                  value={formData.company}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <Form.Group className="mb-3" controlId="formCompany">
+            <Form.Label>Empresa:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingresa tu empresa"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-              <div className="mb-3">
-                <label htmlFor="service" className="form-label">
-                  Servicio:
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  className="form-select"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">Selecciona un servicio</option>
-                  {services.length > 0 ? (
-                    services.map((service) => (
-                      <option key={service.id} value={service.name}>
-                        {service.name}
-                      </option>
-                    ))
-                  ) : (
-                    <option value="" disabled>
-                      Cargando servicios...
-                    </option>
-                  )}
-                </select>
-              </div>
+          <Form.Group className="mb-3" controlId="formService">
+            <Form.Label>Servicio:</Form.Label>
+            <Form.Select
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Selecciona un servicio</option>
+              {services.map((service) => (
+                <option key={service.id} value={service.name}>
+                  {service.name}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
 
-              <div className="mb-3">
-                <label htmlFor="phone" className="form-label">
-                  Teléfono:
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  className="form-control"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <Form.Group className="mb-3" controlId="formPhone">
+            <Form.Label>Teléfono:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingresa tu teléfono"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-              <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Correo Electrónico:
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="form-control"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <Form.Group className="mb-3" controlId="formEmail">
+            <Form.Label>Correo Electrónico:</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Ingresa tu correo electrónico"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-              <div className="mb-3">
-                <label htmlFor="message" className="form-label">
-                  Mensaje:
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  className="form-control"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="4"
-                  required
-                />
-              </div>
+          <Form.Group className="mb-3" controlId="formMessage">
+            <Form.Label>Mensaje:</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={4}
+              placeholder="Ingresa tu mensaje"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
 
-              <button
-                type="submit"
-                className="btn btn-primary w-100"
-                disabled={isLoading}
-              >
-                {isLoading ? "Enviando..." : "Enviar"}
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+          <Button
+            variant="primary"
+            type="submit"
+            className="w-100"
+            disabled={isLoading}
+          >
+            {isLoading ? <Spinner animation="border" size="sm" /> : "Enviar"}
+          </Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 };
 

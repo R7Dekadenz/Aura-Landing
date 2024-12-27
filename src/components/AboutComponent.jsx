@@ -1,14 +1,16 @@
 import React from "react";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import "../css/about.css";
 import "../css/style.css";
-import companyVisionImage from "../media/img/company_vision.jpg";
+import companyVisionImage from "../media/img/company_vision.webp";
+import companyMisionImage from "../media/img/company_mision.webp";
 
 const AboutComponent = () => {
   return (
     <section id="about" className="section-about">
-      <div className="container mb-5">
-        <div className="row">
-          <div className="col-md-6">
+      <Container className="mb-5">
+        <Row>
+          <Col md={6}>
             <div className="about-text">
               <h1 className="pb-4 text-blue wx-h1-1 font-bold">VISIÓN</h1>
               <p>
@@ -21,31 +23,33 @@ const AboutComponent = () => {
                 actuales, sino que también anticipen los desafíos del futuro.
               </p>
             </div>
-          </div>
-          <div className="col-md-6">
-            <img
+          </Col>
+          <Col md={6}>
+            <Image
               className="img-about"
               src={companyVisionImage}
               alt="Company Vision"
+              fluid
             />
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
 
-      <div className="container">
+      <Container>
         <hr />
-      </div>
+      </Container>
 
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-6">
-            <img
+      <Container className="mt-5">
+        <Row>
+          <Col md={6}>
+            <Image
               className="img-about"
-              src={companyVisionImage}
-              alt="Company Vision"
+              src={companyMisionImage}
+              alt="Company Mission"
+              fluid
             />
-          </div>
-          <div className="col-md-6">
+          </Col>
+          <Col md={6}>
             <div className="about-text">
               <h1 className="pb-4 text-blue wx-h1-1 font-bold">MISIÓN</h1>
               <p>
@@ -57,9 +61,9 @@ const AboutComponent = () => {
                 para cada uno de nuestros socios.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 };

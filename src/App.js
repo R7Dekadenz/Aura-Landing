@@ -3,8 +3,8 @@ import HeaderComponent from './components/HeaderComponent';
 import AboutComponent from './components/AboutComponent';
 import ProductsComponent from './components/ProductsComponent';
 import ContactComponent from './components/ContactComponent';
+import FooterComponent from './components/FooterComponent';
 import "./css/style.css";
-
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <AboutComponent/>
       <ProductsComponent/>
       <ContactComponent/>
+      <FooterComponent/>
     </div>
   );
 }

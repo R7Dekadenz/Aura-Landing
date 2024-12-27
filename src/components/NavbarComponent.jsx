@@ -1,7 +1,6 @@
-// src/components/Navbar.js
 import React from "react";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import "../css/navbar.css";
-import LoginModalComponent from "./ModalsComponents/Login/LoginModalComponent";
 import { FaUser } from "react-icons/fa";
 
 const NavbarComponent = () => {
@@ -10,62 +9,42 @@ const NavbarComponent = () => {
   };
 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white">
-        <div className="container">
-          <a className="navbar-brand" href="/">
-            <span className="brand-name">Aura</span>
-          </a>
+    <Navbar expand="lg" className="navbar-light bg-white" id="index">
+      <Container>
+        <Navbar.Brand href="/">
+          <span className="brand-name">Aura</span>
+        </Navbar.Brand>
 
-          <div
-            className="collapse navbar-collapse justify-content-center"
-            id="navbarNav"
+        <Navbar.Toggle aria-controls="navbarNav" className="navbar-toggler" />
+        <Navbar.Collapse id="navbarNav" className="justify-content-center">
+          <Nav className="navbar-nav g-txt-1">
+            <Nav.Item>
+              <Nav.Link href="#about">Nosotros</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className="a-txt-1" href="#services">
+                Servicios
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className="a-txt-1" href="#contact">
+                Contacto
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Navbar.Collapse>
+
+        <div className="d-flex">
+          <Button
+            variant="link"
+            style={{ border: "none", background: "transparent" }}
+            onClick={handleLoginClick}
           >
-            <ul className="navbar-nav g-txt-1 ">
-              <li className="nav-item">
-                <a className="nav-link" href="#about">
-                  {" "}
-                  Nosotros
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link a-txt-1" href="#services">
-                  Servicios
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link a-txt-1" href="#contact">
-                  Contacto
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="d-flex">
-            <button
-              className="btn"
-              style={{ border: "none", background: "transparent" }}
-              onClick={handleLoginClick}
-            >
-              <FaUser size={20} color="black" />
-            </button>
-          </div>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+            <FaUser size={20} color="black" />
+          </Button>
         </div>
-      </nav>
-      <LoginModalComponent />
-    </>
+      </Container>
+    </Navbar>
   );
 };
 
